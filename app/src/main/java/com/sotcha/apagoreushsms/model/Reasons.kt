@@ -1,5 +1,8 @@
 package com.sotcha.apagoreushsms.model
 
+import android.content.Context
+import com.sotcha.apagoreushsms.R
+
 data class Reason(
     val id: Int,
     val smallDescription: String,
@@ -7,42 +10,43 @@ data class Reason(
 ) {
 
     companion object {
-        val LIST = listOf<Reason>(
-            Reason(
-                1,
-                "ΦΑΡΜΑΚΕΙΟ Η ΓΙΑΤΡΟ",
-                "Μετάβαση σε φαρμακείο ή επίσκεψη στον γιατρό, εφόσον αυτό συνιστάται μετά από σχετική επικοινωνία."
-            ),
-            Reason(
-                2,
-                "ΠΡΟΜΗΘΕΙΕΣ - ΦΟΥΡΝΟΣ - ΣΟΥΠΕΡΜΑΚΕΤ",
-                "Μετάβαση σε εν λειτουργία κατάστημα προμηθειών αγαθών πρώτης ανάγκης, όπου δεν είναι δυνατή η αποστολή τους."
-            ),
-            Reason(
-                3,
-                "ΤΡΑΠΕΖΑ",
-                "Μετάβαση στην τράπεζα, στο μέτρο που δεν είναι δυνατή η ηλεκτρονική συναλλαγή."
-            ),
-            Reason(
-                4,
-                "ΒΟΗΘΕΙΑ ΣΕ ΑΝΘΡΩΠΟΥΣ",
-                "Κίνηση για παροχή βοήθειας σε ανθρώπους που βρίσκονται σε ανάγκη."
-            ),
-            Reason(
-                5,
-                "ΤΕΛΕΤΗ - ΚΗΔΕΙΑ - ΓΑΜΟΣ - ΒΑΦΤΙΣΗ",
-                "Μετάβαση σε τελετή (π.χ. κηδεία, γάμος, βάφτιση) ."
-            ),
+        fun getReasonsList(context: Context): List<Reason> =
 
-            Reason(
-                6,
-                "ΣΩΜΑΤΙΚΗ ΑΣΚΗΣΗ - ΒΟΛΤΑ ΜΕ ΚΑΤΟΙΚΙΔΙΟ",
-                "Σωματική άσκηση σε εξωτερικό χώρο ή κίνηση με κατοικίδιο ζώο."
+            listOf<Reason>(
+                Reason(
+                    1,
+                    context.getString(R.string.reason_1),
+                    context.getString(R.string.reason_1_descrption)
+                ),
+                Reason(
+                    2,
+                    context.getString(R.string.reason_2),
+                    context.getString(R.string.reason_2_descrption)
+                ),
+                Reason(
+                    3,
+                    context.getString(R.string.reason_3),
+                    context.getString(R.string.reason_3_descrption)
+                ),
+                Reason(
+                    4,
+                    context.getString(R.string.reason_4),
+                    context.getString(R.string.reason_4_descrption)
+                ),
+                Reason(
+                    5,
+                    context.getString(R.string.reason_5),
+                    context.getString(R.string.reason_5_descrption)
+                ),
+                Reason(
+                    6,
+                    context.getString(R.string.reason_6),
+                    context.getString(R.string.reason_6_descrption)
+                )
+
             )
 
-        )
     }
-
 }
 
 

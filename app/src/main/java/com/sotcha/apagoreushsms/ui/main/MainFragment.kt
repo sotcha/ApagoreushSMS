@@ -32,7 +32,8 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        val factory = MainViewModelFactory(activity!!)
+        viewModel = ViewModelProvider(this,factory).get(MainViewModel::class.java)
 
         loadData()
     }
@@ -57,7 +58,7 @@ class MainFragment : Fragment() {
 
         var result = true
         if (binding.nameEditText.text.toString().trim().isEmpty()) {
-            binding.nameEditTextLayout.error = "Λείπει το όνομα"
+            binding.nameEditTextLayout.error = "Λείπει το ονοματεπώνυμο"
             result = false
         }
         if (binding.addressEditText.text.toString().trim().isEmpty()) {
@@ -78,7 +79,7 @@ class MainFragment : Fragment() {
         activity?.let { viewModel.save(it) }
     }
 
-    private fun onSubmitClick(it: View) {
+    private fun onSubmitClick(v:View) {
         if (validate()) {
             activity?.let { saveUser() }
             binding.nameEditText.clearFocus()
@@ -91,6 +92,5 @@ class MainFragment : Fragment() {
     interface MainFragmentListener {
         fun goToReasons(user: User)
     }
-
 
 }

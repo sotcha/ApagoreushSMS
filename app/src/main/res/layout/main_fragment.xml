@@ -1,64 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="@dimen/content_margin"
-    tools:context=".ui.main.MainFragment">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameEditTextLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <LinearLayout
+        android:id="@+id/formGroupWrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/content_margin"
-        android:hint="Όνομα"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/content_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ui.main.MainFragment">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nameEditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:nextFocusDown="@id/addressEditText" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="@dimen/content_margin"
+            android:hint="@string/fullname_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:nextFocusDown="@id/addressEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/addressEditTextLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/content_margin"
-        android:hint="Διεύθυνση"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameEditTextLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/addressEditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:lines="1"
-            android:nextFocusDown="@id/confirmButton" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="@dimen/content_margin"
+            android:hint="@string/address_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameEditTextLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:lines="1"
+                android:nextFocusDown="@id/confirmButton" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/confirmButton"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:padding="16dp"
+            android:text="ΕΠΟΜΕΝΟ"
+            android:textSize="22dp" />
+
+
+    </LinearLayout>
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:padding="16dp"
-        android:text="ΕΠΟΜΕΝΟ"
-        android:textSize="22dp" />
+        android:layout_gravity="center|bottom"
+        android:adjustViewBounds="true"
+        android:src="@drawable/menoumespiti"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintTop_toBottomOf="@id/formGroupWrapper" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.sotcha.apagoreushsms.R
@@ -32,9 +34,10 @@ class ReasonFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.load(activity!!)
 
+        val factory = MainViewModelFactory(activity!!)
+        viewModel = ViewModelProvider(this,factory).get(MainViewModel::class.java)
+        viewModel.load(activity!!)
 
         initReasons(binding.reasonsWrapper)
         initUser(viewModel.user)
@@ -58,11 +61,21 @@ class ReasonFragment : Fragment() {
         val binding = ItemReasonBinding.bind(view)
         binding.reasonButton.text = "${reason.id}.  ${reason.smallDescription}"
         binding.reasonButton.setOnClickListener { onClickReason(reason) }
+
         binding.description.text = reason.description
+        binding.description.visibility = View.GONE
     }
 
     private fun onClickReason(reason: Reason) {
         listener?.onSendSms("${reason.id} ${viewModel.user.name} ${viewModel.user.address}")
+    }
+
+    fun toggleInfo() {
+        binding.reasonsWrapper.children.forEach { child ->
+            val description = child.findViewById<TextView>(R.id.description)
+            description.visibility =
+                if (description.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+        }
     }
 
 

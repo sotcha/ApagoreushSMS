@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.sotcha.apagoreushsms.BuildConfig
 import com.sotcha.apagoreushsms.R
 import com.sotcha.apagoreushsms.databinding.ItemReasonBinding
 import com.sotcha.apagoreushsms.databinding.ReasonFragmentBinding
@@ -36,8 +37,10 @@ class ReasonFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val factory = MainViewModelFactory(activity!!)
-        viewModel = ViewModelProvider(this,factory).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
         viewModel.load(activity!!)
+
+        binding.topText.visibility = if (BuildConfig.SHOW_MORE_INFO) View.VISIBLE else View.GONE
 
         initReasons(binding.reasonsWrapper)
         initUser(viewModel.user)

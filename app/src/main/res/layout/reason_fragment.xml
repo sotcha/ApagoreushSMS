@@ -14,6 +14,14 @@
         android:padding="@dimen/content_margin">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/topText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reason_screen_top"
+            android:layout_marginBottom="@dimen/content_margin"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

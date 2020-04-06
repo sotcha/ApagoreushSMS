@@ -6,79 +6,143 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/formGroupWrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="@dimen/content_margin"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.main.MainFragment">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameEditTextLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/content_margin"
-            android:hint="@string/fullname_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/content_margin"
+            tools:context=".ui.main.MainFragment">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameEditText"
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:nextFocusDown="@id/addressEditText" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:text="@string/first_screen_top_intro" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/addressEditTextLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/content_margin"
-            android:hint="@string/address_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nameEditTextLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/addressEditText"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameEditTextLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:lines="1"
-                android:nextFocusDown="@id/confirmButton" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="@dimen/content_margin"
+                android:hint="@string/fullname_hint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:nextFocusDown="@id/addressEditText" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/confirmButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:padding="16dp"
-            android:text="ΕΠΟΜΕΝΟ"
-            android:textSize="22dp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addressEditTextLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/content_margin"
+                android:hint="@string/address_hint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameEditTextLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:nextFocusDown="@id/confirmButton" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/confirmButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:padding="16dp"
+                android:text="ΕΠΟΜΕΝΟ"
+                android:textSize="22dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/infoBottomImage"
+        android:layout_width="16dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/content_margin"
+        android:layout_marginLeft="@dimen/content_margin"
+        android:layout_marginTop="@dimen/content_margin"
+        android:src="@drawable/ic_asterisk"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formGroupWrapper" />
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
         android:layout_gravity="center|bottom"
         android:adjustViewBounds="true"
-        android:src="@drawable/menoumespiti"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/launcher_icon_house4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/devName"/>
 
-        app:layout_constraintTop_toBottomOf="@id/formGroupWrapper" />
+    <ImageView
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:padding="8dp"
+        android:layout_gravity="center|bottom"
+        android:adjustViewBounds="true"
+        android:tint="@color/colorPrimary"
+        android:src="@drawable/ic_help_svg"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/content_margin"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/infoBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="start"
+        android:padding="0dp"
+        android:text="@string/first_screen_bottom"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/infoBottomImage"
+        app:layout_constraintTop_toTopOf="@id/infoBottomImage" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/devName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="0dp"
+        android:text="@string/dev_name"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

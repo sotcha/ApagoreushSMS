@@ -17,10 +17,22 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            buildConfigField "Boolean", "SHOW_MORE_INFO", SHOW_MORE_INFO
+//            buildConfigField "Boolean", "SHOW_MORE_INFO", SH
+
+        }
+
         release {
+            buildConfigField "Boolean", "SHOW_MORE_INFO", SHOW_MORE_INFO
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 
     viewBinding {
